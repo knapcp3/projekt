@@ -1,8 +1,13 @@
+import java.util.List;
+import java.util.Map;
+
 public class building {
     private
     int NoofRoom;
-    room Room[];//przerób na listę
-    void init(int size){}
+    int NoofDoors;
+    Map<Integer, Boolean> DoorList;
+    List<room> RoomList; //przerób na listę
+    void init(int size, int noOfDoors){}
     public
     void raiseAlarm(int roomID) {}
     int addRoom() {
