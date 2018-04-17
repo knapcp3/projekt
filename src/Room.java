@@ -1,47 +1,50 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-class Room implements Space{
+class Room implements Space {
 
-    public Room(){
-        this.id = counter; counter++;
+    public Room() {
+        this.id = counter;
+        counter++;
         this.lights = new TreeMap();
-        this.lights.put(0, true); this.lights.put(1, false); this.lights.put(2, true); /// change to read from outside !!
+        this.lights.put(0, true);
+        this.lights.put(1, false);
+        this.lights.put(2, true); /// change to read from outside !!
         this.temperature = 20; /// change to read from outside !!
         this.CO2Concentration = 1;  /// change to read from outside !!
     }
 
-//getters
-    public int getId(){
+    //getters
+    public int getId() {
         return this.id;
     }
 
-    public int getCurTemperature(){
+    public int getCurTemperature() {
         return this.temperature;
     }
 
-    public int getCurCO2Concentration(){
+    public int getCurCO2Concentration() {
         return this.CO2Concentration;
     }
 
-    public Boolean getLightState(int lightNr){
+    public Boolean getLightState(int lightNr) {
         return this.lights.get(lightNr);
     }
 
-    public Map getLightStates(){
+    public Map getLightStates() {
         return this.lights;
     }
 
-//setters
-    public void setTemperature(int temperature){
+    //setters
+    public void setTemperature(int temperature) {
         this.temperature = temperature;
     }
 
-    public void setCO2Concentration(int CO2Concentration){
+    public void setCO2Concentration(int CO2Concentration) {
         this.CO2Concentration = CO2Concentration;
     }
 
-    public void setLight(int lightNr, boolean state){
+    public void setLight(int lightNr, boolean state) {
         this.lights.put(lightNr, state);
     }
 
