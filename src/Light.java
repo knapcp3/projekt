@@ -1,6 +1,10 @@
 public class Light {
-    boolean light;
-    void light_on(int id_room) {}
-    void light_off(int id_room) {}
-    void all_light_off() {}
+    static void light_on(int id_room) {
+    }
+
+    static void light_off(int id_room) {
+    }
+
+    static void all_light_off() {
+    }
 }
