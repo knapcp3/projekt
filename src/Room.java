@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-class Room {
+class Room implements Space{
 
         public Room() {
             this.id = counter;
