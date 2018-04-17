@@ -1,0 +1,40 @@
+1. System wyœwietla okno logowania i prosi u¿ytkownika o zalogowanie.
+2. U¿ytkownik podaje numer identyfikacyjny i has³o.
+3. System uznaje dane za poprawne.
+4. Nastêpuje zalogowanie u¿ytkownika-administratora.
+5. Wyœwietla siê panel kontrolny.
+6. U¿ytkownik klika wybran¹ ikonê.
+	6a. Widok z kamer.
+		6a1. Wyœwietla siê plan budynku, napis "Historia".
+		6a2. U¿ytkownik wybiera pomieszczenie, obszar.
+			- wyœwietlany jest obraz z kamer z danego obszaru
+		6a3. U¿ytkownik wybiera "Historia"
+			- wyœwietla siê panel z mo¿liwoœci¹ wyboru obszaru i daty
+			- po wyborze parametrów wyœwietlany jest obraz 
+	6b. Temperatura powietrza.
+		6b1. Wyœwietla siê plan budynku.
+		6b2. U¿ytkownik wybiera pomieszczenie, obszar.
+			- wyœwietla siê panel z mo¿liwoœci¹ zmiany domyœlnej temperatury, obecna temperatura, info o ogrzewaniu, klimatyzacji
+			 (w pomieszczeniu termostatem mo¿na zmieniaæ o +- 2 stopnie)
+	6c. Stê¿enie CO2. 
+		6c1. Wyœwietla siê plan budynku
+		6c2. U¿ytkownik wybiera pomieszczenie, obszar
+			- wyœwietlaj¹ siê informacje o stê¿eniu itd itp
+	6d. System audio.
+		6d1. Wyœwietla siê plan budynku, napis "zaznacz ca³y budynek", "start"
+		6d2. U¿ytkownik wybiera pomieszczenia i klika "start".
+		6d3. Klikniêcie w okienko z logiem mikrofonu pozwala na u¿ywanie systemu.
+	6f. System identyfikacji, kontroli dostêpu do pomieszczeñ.
+		6f1. Wyœwietla siê plan budynku z ikonkami osób (na podstawie czujników ruchu), okienko do wpisania id karty
+		6f2. U¿ytkownik wpisuje id karty
+			- wyœwietlaj¹ siê informacje czy w³aœciciel karty(karta) jest w budynku, w jakim pomieszczeniu,
+				 info o w³aœcicielu, historia z mo¿liwoœci¹ wpisania daty
+		6f3. U¿ytkownik klika w wybran¹ ikonkê osoby
+			- wyœwietla siê info o u¿ytkowniku (karcie)
+		6f4. U¿ytkownik klika w pomieszczenie
+			- wpisuje datê od do
+			- wyœwietla siê historia pomieszczenia 
+	6g. System oœwietlenia.
+		6g1. 
+	6h. Uruchom alarm.
+		6h1. wyœwietla siê komunikat, ¿eby klikn¹æ w okienko, aby uruchomiæ alarm.
