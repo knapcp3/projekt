@@ -1,47 +1,71 @@
 
-public class AirConditioning {
+public class AirConditioning implements Controller{
+    public AirConditioning()
+    {
+        this.temperature = 20; /// change to read from outside !!
+    }
 
-    static void changeTemperature(Room room, int purpose){
-        if(purpose != room.getCurTemperature())
+    public boolean check(){
+        if(this.temperature < minTemp){
+
+            return false;
+        }
+        else if(this.temperature > maxTemp){
+
+            return false;
+        }
+        return true;
+    }
+
+    int getCurTemperature() {
+        return this.temperature;
+    }
+
+    void changeTemperature(int purpose){
+        if(purpose != this.temperature)
         {
-            if(purpose < room.getCurTemperature())
+            if(purpose < this.temperature)
             {
-                switchAirConditioner(room, purpose);
+                switchAirConditioner(purpose);
             }
             else
             {
-                switchRadiator(room, purpose);
+                switchRadiator(purpose);
             }
         }
         System.out.println("Gotowe!");
     }
 
 
-    static void heating (Room room)
+    void heating()
     {
-        room.setTemperature(room.getCurTemperature()+1);
+        this.temperature++;
     }
 
-    static void cooling(Room room)
+    void cooling()
     {
-        room.setTemperature(room.getCurTemperature()-1);
+        this.temperature--;
     }
 
-    static void switchAirConditioner (Room room,int purpose)
+    void switchAirConditioner(int purpose)
     {
-        while (room.getCurTemperature() > purpose)
+        while (this.temperature > purpose)
         {
-                System.out.println(room.getCurTemperature());
-                cooling(room);
+            System.out.println(this.temperature);
+            cooling();
         }
 
     }
 
-    static void switchRadiator(Room room, int purpose)
+    void switchRadiator(int purpose)
     {
-        while(room.getCurTemperature()< purpose){
-            System.out.println(room.getCurTemperature());
-            heating(room);
+        while(this.temperature < purpose){
+            System.out.println(this.temperature);
+            heating();
         }
     }
+
+    private int temperature; //in C degrees
+    private static final int minTemp = 16;
+    private static final int maxTemp = 26;
 }

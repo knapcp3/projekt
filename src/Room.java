@@ -1,57 +1,56 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-class Room {
 
-        public Room() {
-            this.id = counter;
-            counter++;
-            this.lights = new TreeMap();
-            this.lights.put(0, true);
-            this.lights.put(1, false);
-            this.lights.put(2, true); /// change to read from outside !!
-            this.temperature = 20; /// change to read from outside !!
-            this.CO2Concentration = 1;  /// change to read from outside !!
-        }
+class Room implements Space{
 
-        //getters
-        public int getId() {
-            return this.id;
-        }
+    public Room() {
+        this.id = counter;
+        counter++;
 
-        public int getCurTemperature() {
-            return this.temperature;
-        }
-
-        public int getCurCO2Concentration() {
-            return this.CO2Concentration;
-        }
-
-        public Boolean getLightState(int lightNr) {
-            return this.lights.get(lightNr);
-        }
-
-        public Map getLightStates() {
-            return this.lights;
-        }
-
-        //setters
-        public void setTemperature(int temperature) {
-            this.temperature = temperature;
-        }
-
-        public void setCO2Concentration(int CO2Concentration) {
-            this.CO2Concentration = CO2Concentration;
-        }
-
-        public void setLight(int lightNr, boolean state) {
-            this.lights.put(lightNr, state);
-        }
-
-        private int id;
-        private int temperature; //in C degrees
-        private int CO2Concentration; //in %
-        private Map<Integer, Boolean> lights; // Light nr: true(on) || Light nr: false (off)
-
-        private static int counter = 0;
+        this.CO2ConcentrationController = new CO2Concentration();
+        this.airConditioningController = new AirConditioning();
+        this.lightController = new Light();
     }
+
+    public int getId() {
+        return this.id;
+    }
+
+    //CO2
+    public int getCurCO2Concentration() {
+        return this.CO2ConcentrationController.getCurCO2Concentration();
+    }
+
+
+    //LIGHT
+    //public Boolean getLightState(int lightNr) {
+    public Boolean getLightState(int lightNr) {
+        return this.lightController.getLightStates().get(lightNr);
+    }
+
+    public Map getLightStates() {
+        return this.lightController.getLightStates();
+    }
+
+    public void setLight(int lightNr, boolean state) {
+        this.lightController.setLight(lightNr, state);
+    }
+
+
+    //TEMP
+    public int getCurTemperature() {
+        return this.airConditioningController.getCurTemperature();
+    }
+
+    public void setTemperature(int temperature) {
+        this.airConditioningController.changeTemperature(temperature);
+    }
+
+    private int id;
+    private CO2Concentration CO2ConcentrationController;
+    private AirConditioning airConditioningController;
+    private Light lightController;
+    private static int counter = 0;
+}
+
