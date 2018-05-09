@@ -7,10 +7,7 @@ public class Main{
         Room room2 = new Room();
         AirConditioning.changeTemperature(room1, 15);
         AirConditioning.changeTemperature(room2, 40);
-    /*Properties okno = new Properties(room1);
-    okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    okno.setVisible(true);
-   */
+
         Room[] room;
         room = new Room [4];
         for (int i=0;i<4;i++)
