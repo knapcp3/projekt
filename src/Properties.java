@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -7,9 +8,9 @@ import java.awt.event.ActionListener;
 public class Properties extends JFrame implements ActionListener {
 
     JLabel lab0, lab1, lab2, lab3;
-    JTextField wyn1, wyn2, wyn3, wyn4;
-    JButton b1, b2;
-    int wpis;
+    JTextField wyn1, wyn2, wyn4;
+    JButton b1, b2, b3;
+    int temp;
     Room room;
     Room [] room3;
 
@@ -26,10 +27,15 @@ public class Properties extends JFrame implements ActionListener {
         lab3 = new JLabel("Stan świateł:");
         wyn1 = new JTextField(String.valueOf(room.getCurTemperature()));
         wyn2 = new JTextField(String.valueOf(room.getCurCO2Concentration()));
-        wyn3 = new JTextField(String.valueOf(room.getCurTemperature()));
         wyn4 = new JTextField("zgaszone");
-        b1 = new JButton("zmiana");
+        b1 = new JButton("-");
         b1.addActionListener(this);
+        b1.setBackground(Color.RED);
+        b3 = new JButton("+");
+        b3.addActionListener(this);
+        b3.setBackground(Color.green);
+        b1.setFont(new Font("Times New Roman",(Font.BOLD|Font.ITALIC),15));
+        b3.setFont(new Font("Times New Roman",(Font.BOLD|Font.ITALIC),15));
 
         b2=new JButton("Menu");
         b2.addActionListener(this);
@@ -38,23 +44,24 @@ public class Properties extends JFrame implements ActionListener {
         lab2.setBounds(10, 90, 120, 20);
         lab3.setBounds(10, 120, 120, 20);
 
-        wyn1.setBounds(150, 60, 100, 20);//temp
+        wyn1.setBounds(210, 60, 100, 20);//temp
         wyn2.setBounds(150, 90, 100, 20);//co2
-        wyn3.setBounds(280, 60, 50, 20);//temp
         wyn4.setBounds(150, 120, 100, 20);//swiatlo
 
-        b1.setBounds(340, 60, 100, 20);
-         b2.setBounds(20,10, 100, 30);
+        b1.setBounds(150, 60, 50, 20);
+        b2.setBounds(20,10, 100, 30);
+        b3.setBounds(320,60, 50, 20);
         add(lab0);
         add(lab1);
         add(lab2);
         add(lab3);
         add(wyn1);
         add(wyn2);
-        add(wyn3);
+        // add(wyn3);
         add(wyn4);
         add(b1);
         add(b2);
+        add(b3);
 
         room3 = new Room [4];
         for (int i=0;i<4;i++) {
@@ -69,9 +76,14 @@ public class Properties extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
         if (source == b1) {
-            wpis = Integer.parseInt(wyn3.getText());
-            room.setTemperature(wpis);
-            wyn1.setText(String.valueOf(wpis));
+            room.setTemperature(room.getCurTemperature()-1);
+            wyn1.setText(String.valueOf(room.getCurTemperature()));
+
+        }
+        else if(source ==b3)
+        {
+            room.setTemperature(room.getCurTemperature()+1);
+            wyn1.setText(String.valueOf(room.getCurTemperature()));
         }
         else if(source ==b2){
             ManagementGui inter= new ManagementGui(room3);
