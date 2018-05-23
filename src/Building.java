@@ -6,4 +6,5 @@ class Building {
 
 
     List<Room> roomList = new ArrayList<>();
+    Monitoring monitoring = new Monitoring();
 }

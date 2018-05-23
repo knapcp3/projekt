@@ -1,6 +1,10 @@
-public class CO2Concentration implements Controller{
+public class CO2Concentration implements Controller, Alarm{
     public CO2Concentration(){
         this.CO2Concentration = 500;  /// change to read from outside !!
+    }
+
+    public void alarm(String message){
+        ////
     }
 
     public boolean check(){
@@ -9,7 +13,7 @@ public class CO2Concentration implements Controller{
             return false;
         }
         else if(this.CO2Concentration > hight_normal_concentration){
-
+            //
             return false;
         }
         return true;
