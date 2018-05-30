@@ -1,3 +1,4 @@
+import javax.swing.*;
 
 public class AirConditioning implements Controller{
     public AirConditioning()
@@ -26,11 +27,17 @@ public class AirConditioning implements Controller{
         {
             if(purpose < this.temperature)
             {
-                switchAirConditioner(purpose);
+                if(this.temperature == minTemp)
+                    JOptionPane.showMessageDialog(null, "Nie można zmniejszyć temperatury, poniewaz osiągnięto dolny limit");
+                else
+                    switchAirConditioner(purpose);
             }
             else
             {
-                switchRadiator(purpose);
+                if(this.temperature == maxTemp)
+                    JOptionPane.showMessageDialog(null, "Nie można zwiększyć temperatury, ponieważ osiągnięto górny limit");
+                else
+                    switchRadiator(purpose);
             }
         }
         System.out.println("Gotowe!");
@@ -51,7 +58,7 @@ public class AirConditioning implements Controller{
     {
         while (this.temperature > purpose)
         {
-            System.out.println(this.temperature);
+            System.out.println(this.temperature - 1);
             cooling();
         }
 
@@ -60,7 +67,7 @@ public class AirConditioning implements Controller{
     void switchRadiator(int purpose)
     {
         while(this.temperature < purpose){
-            System.out.println(this.temperature);
+            System.out.println(this.temperature + 1);
             heating();
         }
     }
