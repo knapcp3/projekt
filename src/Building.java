@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class Building {
+public class Building {
     public Building(Room[] rooms){
         this.roomList = rooms;
     }

@@ -2,7 +2,7 @@ import java.util.Map;
 import java.util.TreeMap;
 
 
-class Room implements Space{
+public class Room implements Space{
 
     public Room() {
         this.id = counter;
@@ -51,6 +51,7 @@ class Room implements Space{
     private CO2Concentration CO2ConcentrationController;
     private AirConditioning airConditioningController;
     private Light lightController;
+    private Door door;
     private static int counter = 0;
 }
 
